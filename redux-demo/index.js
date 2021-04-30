@@ -1,5 +1,6 @@
 const redux = require('redux');
 const createStore = redux.createStore;
+const combineReducers = redux.combineReducers;
 
 const BUY_CAKE = 'BUY_CAKE';
 const BUY_ICECREAM = 'BUY_ICECREAM';
@@ -78,7 +79,13 @@ const iceCreamReducer = (state = initialIceCreamState, action) => {
     }
 }
 
-const store = createStore(reducer);
+// Note: When we dispatch an action, both reducers receive that action
+// One of them acts on it and other just ignores it
+const rootReducer = combineReducers({
+    cake: cakeReducer,
+    iceCream: iceCreamReducer
+});
+const store = createStore(rootReducer);
 
 console.log(`Initial state: ${JSON.stringify(store.getState(), undefined, 2)}`);
 
