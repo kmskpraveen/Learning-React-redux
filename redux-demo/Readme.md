@@ -18,3 +18,8 @@ One store for the entire application
 - Allows state to be updated via dispatch(action)
 - Registers listeners via subscribe(listener)
 - Handles unregistering of listeners via the function returned by subscribe(listener)
+
+## Middleware
+- Is the suggested way to extend Redux with custom functionality
+- Provides a third-party extension point between dispatching an action, and the moment it reaches the reducer
+- Use middleware for logging, crash reporting, performing asynchronous tasks etc.
