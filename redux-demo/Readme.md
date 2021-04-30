@@ -23,3 +23,12 @@ One store for the entire application
 - Is the suggested way to extend Redux with custom functionality
 - Provides a third-party extension point between dispatching an action, and the moment it reaches the reducer
 - Use middleware for logging, crash reporting, performing asynchronous tasks etc.
+
+## Actions
+### Synchronous actions
+As soon as action was dispatched, the state was immediately updated
+If you dispatch the BUY_CAKE action, the numOfCakes was right away decremented by 1.
+Same with BUY_ICECREAM action as well.
+
+### Async actions
+Asynchnorous API calls to fetch data from an end point and use that data in your application.
