@@ -1,3 +1,6 @@
+const redux = require('redux');
+const createStore = redux.createStore;
+
 const BUY_CAKE = 'BUY_CAKE';
 
 /**
@@ -14,6 +17,7 @@ function buyCake() {
 const initialState = {
     numOfCakes: 10
 }
+
 /**
  * Reducer function (previousState, action) => newState)
  * @param state 
@@ -30,3 +34,15 @@ const reducer = (state = initialState, action) => {
         default: return state
     }
 }
+
+const store = createStore(reducer);
+
+console.log(`Initial state: ${JSON.stringify(store.getState(), undefined, 2)}`);
+
+const unSubscribe = store.subscribe(() => console.log(`Updated state: ${JSON.stringify(store.getState(), undefined, 2)}`))
+
+store.dispatch(buyCake())
+store.dispatch(buyCake())
+store.dispatch(buyCake())
+
+unSubscribe()
