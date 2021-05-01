@@ -32,3 +32,8 @@ Same with BUY_ICECREAM action as well.
 
 ### Async actions
 Asynchnorous API calls to fetch data from an end point and use that data in your application.
+
+## Redux Thunk Middleware
+- axios -> Requests to an API endpoint
+- redux-thunk -> Define async action creators. It is a middleware we'll be applying to our redux store.
+- Thunk brings the ability for an action creator to return a function instead of an action object. This function doesn't have to be pure i.e. it is allowed perform side effects like async API call. This function can also dispatch actions
